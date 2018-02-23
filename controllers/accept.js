@@ -2,52 +2,15 @@
 
 const Telegram = require('telegram-node-bot');
 
-const errMsg = 'این پاسخ درست نمی باشد';
-
-const form = {
-	name: {
-		q: 'نام و نام خانوادگی :',
-		error: errMsg,
-		validator: (message, callback) => {
-			if (message.text) {
-				callback(true, message.text);
-				return;
-			}
-
-			callback(false);
-		}
-	},
-	email: {
-		q: 'پست الکترونیکی :',
-		error: errMsg,
-		validator: (message, callback) => {
-			if (message.text) {
-				callback(true, message.text);
-				return;
-			}
-
-			callback(false);
-		}
-	},
-	phone: {
-		q: 'شماره تماس :',
-		error: errMsg,
-		validator: (message, callback) => {
-            if(message.text && IsNumeric(message.text)) {
-                callback(true, toInt(message.text))
-                return
-            }
-
-            callback(false)
-        }
-	},
-		
-}
+const form = require('../form');
 
 class AcceptController extends Telegram.TelegramBaseController {
 	acceptHandler($) {
 		$.sendMessage('لطفا با دقت به پرسش ها ، پاسخ بدهید');
-		$.runForm('نام و نام خانوادگی :');
+		$.runForm(form, (result) => {
+			console.log(result);
+			$.sendMessage('Thank you for your information');
+		});
 	}
 
 	get routes() {

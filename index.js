@@ -11,6 +11,11 @@ const StartController = require('./controllers/start');
 const NoAcceptController = require('./controllers/no-accept');
 const AcceptController = require('./controllers/accept');
 
+// Handling unhandled rejections
+process.on('unhandledRejection', error => {
+	console.log('unhandledRejection:', error.message);
+});
+
 tg.router.when(new Telegram.TextCommand('/ping', 'pingCommand'), new PingController())
 	.when(new Telegram.TextCommand('/start', 'startCommand'), new StartController())
 	.when(new Telegram.TextCommand('عدم پذیرش قوانین موسسه همسرجون', 'noAcceptCommand'), new NoAcceptController())
