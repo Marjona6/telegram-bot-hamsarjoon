@@ -39,7 +39,7 @@ const form = {
         },
         keyboard: [
         	[{
-        		text: 'Press to share phone number',
+        		text: 'فرستادن شماره تلفن',
         		request_contact: true
         	}]
         ],

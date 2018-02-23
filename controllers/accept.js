@@ -6,8 +6,8 @@ const form = require('../form');
 
 var checkKeyboard = {reply_markup: JSON.stringify({
 		keyboard: [
-			['بله'],
-			['نه']
+			['تایید می کنم'],
+			['تایید نمی کنم']
 		],
 		keyboard_resize: true,
 		one_time_keyboard: true
