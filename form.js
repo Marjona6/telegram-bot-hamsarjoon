@@ -19,14 +19,7 @@ const form = {
 	email: {
 		q: 'پست الکترونیکی :',
 		error: errMsg,
-		validator: (message, callback) => {
-			if (message.text) {
-				callback(true, message.text);
-				return;
-			}
-
-			callback(false);
-		}
+		validator: validatorStandard
 	},
 	phone: {
 		// TODO: use request_contact as a parameter in KeyboardButton object
@@ -60,36 +53,18 @@ const form = {
 		// (hard to do this--may need to pay for a 3rd-party service like google)
 		q: 'کشور :',
 		error: errMsg,
-		validator: (message, callback) => {
-			if (message.text) {
-				callback(true, message);
-				return;
-			}
-			callback(false);
-		}
+		validator: validatorStandard
 	},
 	city: {
 		// TODO: make a list of these for user to choose from?
 		q: 'شهری که سکونت دارید :',
 		error: errMsg,
-		validator: (message, callback) => {
-			if (message.text) {
-				callback(true, message);
-				return;
-			}
-			callback(false);
-		}
+		validator: validatorStandard
 	},
 	age: {
 		q: 'سن :',
 		error: errMsg,
-		validator: (message, callback) => {
-			if (message.text) {
-				callback(true, message);
-				return;
-			}
-			callback(false);
-		}
+		validator: validatorStandard
 	},
 	height: {
 		q: 'قد :',
@@ -100,7 +75,47 @@ const form = {
 		q: 'وزن :',
 		error: errMsg,
 		validator: validatorStandard
-	}
+	},
+	education: {
+		q: 'تحصیلات :',
+		error: errMsg,
+		validator: validatorStandard
+	},
+	occupation: {
+		q: 'کار :',
+		error: errMsg,
+		validator: validatorStandard
+	},
+	relationshipStatus: {
+		q: 'وضعیت تاهل :',
+		error: errMsg,
+		validator: validatorStandard
+	},
+	children: {
+		q: 'تعداد فرزند :',
+		error: errMsg,
+		validator: validatorStandard
+	},
+	religion: {
+		q: 'دین :',
+		error: errMsg,
+		validator: validatorStandard
+	},
+	wantToRelocate: {
+		q: 'علاقمند به مهاجرت :',
+		error: errMsg,
+		validator: validatorStandard,
+		keyboard: [
+        	[{
+        		text: 'Yes'
+        	}],
+        	[{
+        		text: 'No'
+        	}]
+        ],
+        one_time_keyboard: true
+	},
+	
 }
 
 module.exports = form;
