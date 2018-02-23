@@ -8,9 +8,10 @@ var startMessage = `لطفا پیش از ثبت نام و فرستادن مشخ�
 
 var keyboard = {reply_markup: JSON.stringify({
 		keyboard: [
-			['پذیرش قوانین موسسه همسرجون'],
+			['قبول می کنم'],
 			['عدم پذیرش قوانین موسسه همسرجون']
 		],
+		keyboard_resize: true,
 		one_time_keyboard: true
 	})
 };

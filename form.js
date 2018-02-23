@@ -4,7 +4,7 @@ const errMsg = 'این پاسخ درست نمی باشد';
 
 const validatorStandard = (message, callback) => {
 			if (message.text) {
-				callback(true, message);
+				callback(true, message.text);
 				return;
 			}
 			callback(false);
@@ -41,11 +41,9 @@ const form = {
         	[{
         		text: 'Press to share phone number',
         		request_contact: true
-        	}],
-        	[{
-        		text: 'Press to enter phone number'
         	}]
         ],
+        resize_keyboard: true,
         one_time_keyboard: true // not working--why?
 	},
 	country: {
@@ -107,26 +105,40 @@ const form = {
 		validator: validatorStandard,
 		keyboard: [
         	[{
-        		text: 'Yes'
+        		text: 'بله'
         	}],
         	[{
-        		text: 'No'
+        		text: 'نه'
         	}]
         ],
+        resize_keyboard: true,
         one_time_keyboard: true
 	},
-	
+	photo1: {
+		q: 'عکس خود را بفرستید',
+		error: errMsg,
+		validator: (message, callback) => {
+            if (message.photo) {
+            	console.log(message.photo[0]._fileId);
+                callback(true, message.photo);
+                return;
+            }
+
+            callback(false);
+        }
+	},
+	photo2: {
+		q: 'عکس خود را بفرستید',
+		error: errMsg,
+		validator: (message, callback) => {
+            if (message.photo) {
+            	console.log(message.photo[0]._fileId);
+                callback(true, message.photo);
+                return;
+            }
+            callback(false);
+        }
+	}
 }
 
 module.exports = form;
-
-/*
-var keyboard = {reply_markup: JSON.stringify({
-		keyboard: [
-			['پذیرش قوانین موسسه همسرجون'],
-			['عدم پذیرش قوانین موسسه همسرجون']
-		],
-		one_time_keyboard: true
-	})
-};
-*/

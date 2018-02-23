@@ -9,7 +9,20 @@ class AcceptController extends Telegram.TelegramBaseController {
 		$.sendMessage('لطفا با دقت به پرسش ها ، پاسخ بدهید');
 		$.runForm(form, (result) => {
 			console.log(result);
-			$.sendMessage('Thank you for your information');
+			$.sendMessage('Does this look right?');
+			var userData = ``;
+			for (const prop in result) {
+				if (result.hasOwnProperty(prop) && typeof result.prop !== 'object') {
+					console.log(result.prop);
+					userData += `${result.prop}
+								`;
+					// $.sendMessage(result.prop);
+				} else if (result.hasOwnProperty(prop) && typeof result.prop === 'object') {
+					// $.sendPhoto(result.prop);
+				}
+			};
+			$.sendMessage(userData);
+			// $.sendMessage('عکس خود را بفرستید');
 		});
 	}
 
