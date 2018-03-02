@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
 	service: config.service,
 	auth: {
 		user: config.user,
-		pass: user.pass
+		pass: config.pass
 	}
 });
 
@@ -16,7 +16,8 @@ const mailOptions = {
 	from: config.user,
 	to: config.targetEmail,
 	subject: 'پیام از تلگرام همسرجون',
-	html: ``; // TODO
+	//html: `<p>Test</p>
+			//` // TODO
 };
 
 class ConfirmDataController extends Telegram.TelegramBaseController {

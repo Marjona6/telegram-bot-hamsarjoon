@@ -32,5 +32,7 @@ tg.router.when(new Telegram.TextCommand('/ping', 'pingCommand'), new PingControl
 	// User wants to edit input form data
 	.when(new Telegram.TextCommand('تایید نمی کنم', 'editDataCommand'), new EditDataController())
 	// User confirms that input data is correct (time to send the data!)
-	.when(new Telegram.TextCommand('تایید می کنم', 'confirmDataCommand'), new ConfirmDataController())
+	//.when(new Telegram.TextCommand('تایید می کنم', 'confirmDataCommand'), new ConfirmDataController())
 	.otherwise(new OtherwiseController());
+
+// tg.addScopeExtension();

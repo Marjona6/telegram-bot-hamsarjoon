@@ -3,8 +3,14 @@
 const Telegram = require('telegram-node-bot');
 
 class EditDataController extends Telegram.TelegramBaseController {
-	handle($) {
+	editDataHandler($) {
 		$.sendMessage(`برای تصحیح روی بخش اشتباه کلیک کنید`);
+	}
+
+	get routes() {
+		return {
+			'editDataCommand': 'editDataHandler'
+		};
 	}
 }
 

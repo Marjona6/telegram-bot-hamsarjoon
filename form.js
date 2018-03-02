@@ -11,7 +11,7 @@ const validatorStandard = (message, callback) => {
 		};
 
 const form = {
-	name: {
+	/*name: {
 		q: 'نام و نام خانوادگی :',
 		error: errMsg,
 		validator: validatorStandard,
@@ -26,11 +26,10 @@ const form = {
 		q: 'شماره تماس :',
 		error: errMsg,
 		validator: (message, callback) => {
-            if (message.text) {
+            if (message.text && isNaN(message.text) == false) {
                 callback(true, parseInt(message.text));
                 return;
-            } else {
-            	console.log(message._contact._phoneNumber);
+            } else if (message._contact !== null) {
             	callback(true, parseInt(message._contact._phoneNumber));
             	return;
             }
@@ -113,7 +112,7 @@ const form = {
         ],
         resize_keyboard: true,
         one_time_keyboard: true
-	},
+	},*/
 	photo1: {
 		q: 'عکس خود را بفرستید',
 		error: errMsg,
