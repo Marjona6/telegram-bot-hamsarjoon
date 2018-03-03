@@ -11,7 +11,7 @@ const validatorStandard = (message, callback) => {
 		};
 
 const form = {
-	/*name: {
+	name: {
 		q: 'نام و نام خانوادگی :',
 		error: errMsg,
 		validator: validatorStandard,
@@ -112,13 +112,13 @@ const form = {
         ],
         resize_keyboard: true,
         one_time_keyboard: true
-	},*/
+	},
 	photo1: {
 		q: 'عکس خود را بفرستید',
 		error: errMsg,
 		validator: (message, callback) => {
             if (message.photo) {
-            	console.log(message.photo[0]._fileId);
+            	// console.log(message.photo[0]._fileId);
                 callback(true, message.photo);
                 return;
             }
@@ -131,7 +131,7 @@ const form = {
 		error: errMsg,
 		validator: (message, callback) => {
             if (message.photo) {
-            	console.log(message.photo[0]._fileId);
+            	// console.log(message.photo[0]._fileId);
                 callback(true, message.photo);
                 return;
             }
