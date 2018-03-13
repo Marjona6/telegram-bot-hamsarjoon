@@ -17,11 +17,13 @@ const EditDataController = require('./controllers/edit-data');
 const ConfirmDataController = require('./controllers/confirm-data');
 
 if(process.env.NODE_ENV === 'production') {
-  bot = new Telegram(token, {workers: 1});
+	console.log(token);
+  bot = new Telegram.Telegram(token, {workers: 1});
   bot.setWebHook(process.env.HEROKU_URL + bot.token);
 }
 else {
-  bot = new Telegram(token, { polling: true });
+	console.log(token);
+  bot = new Telegram.Telegram(token, { polling: true, workers: 1 });
 }
 
 
